@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <title>Number Converter</title>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1>Number Converter</h1>
+            <p>
+                Conversion between Binary, Octal, Decimal, and Hexadecimal number systems. 
+            </p>
+        </div>
+        <div class="container justify-content-center">
+            <form id="InputForm">
+                <div class="col-md-8 mx-auto">
+                    <div id="ErrorMessage1" class="alert alert-danger mx-auto" style="display: none;">
+                        <strong>Error!</strong> A valid input value is required.
+                    </div>
+                    <div id="ErrorMessage2" class="alert alert-danger mx-auto" style="display: none;">
+                        <strong>Error!</strong> Input value is out of range.
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 mb-3">
+                            <strong>From</strong>
+                            <select id="FromDropDownList" class="custom-select" required aria-label="From Unit">
+                                <option value="" selected>- Select -</option>
+                                <option value="1">Binary&#160;&#160;(Base 2)</option>
+                                <option value="2">Octal&#160;&#160;(Base 8)</option>
+                                <option value="3">Decimal&#160;&#160;(Base 10)</option>
+                                <option value="4">Hexadecimal&#160;&#160;(Base 16)</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mb-3">
+                            <strong>To</strong>
+                            <select id="ToDropDownList" class="custom-select" required aria-label="To Unit">
+                                <option value="" selected>- Select -</option>
+                                <option value="1">Binary&#160;&#160;(Base 2)</option>
+                                <option value="2">Octal&#160;&#160;(Base 8)</option>
+                                <option value="3">Decimal&#160;&#160;(Base 10)</option>
+                                <option value="4">Hexadecimal&#160;&#160;(Base 16)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 mb-3">
+                            <strong>Input Value</strong>
+                            <input id="InputTextBox" type="text" class="form-control rounded" aria-label="Input Data">
+
+                            <!-- Link to trigger modal -->
+                            <i class="fas fa-info-circle" style="color:blue"></i>
+                            <a href="#TipModal" data-toggle="modal" data-target="#TipModal">Help</a>
+                            <!-- Modal popup message for help and hints -->
+                            <div class="modal fade" id="TipModal" tabindex="-1" role="dialog" aria-labelledby="TipModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="TipModalLabel">Help & Hints</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            When entering an input value you wish to convert or calculate, use the following number formats for Base 2 through Base 36.
+                                            <ul style="list-style:none;">
+                                                <li>1</li>
+                                                <li>1.0</li>
+                                                <li>0.1</li>
+                                                <li>.1</li>
+                                                <li>123.4567</li>
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mb-3">
+                            <strong>Converted Value</strong>
+                            <input readonly id="OutputTextBox" type="text" class="form-control rounded" aria-label="Output Data">
+                        </div>
+                    </div> 
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <div class="col-md-3">
+                            <button id="CalculateBtn" class="btn btn-primary btn-block" type="submit" onClick="convertNumber();">Calculate</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button id="ClearBtn" class="btn btn-primary btn-block" type="button" onClick="clearForm();">Clear</button>
+                        </div>
+                    </div>   
+                </div>
+            </form>
+        </div>
+        <!-- Scripts --> 
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script defer src="./scripts/numberConverter.js"></script>
+        <script defer src="./scripts/numberHandler.js"></script>
+    </body>
+</html>
