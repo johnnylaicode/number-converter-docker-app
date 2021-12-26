@@ -1,5 +1,5 @@
 # number-converter-docker-app
-This repository contains the Docker image of number converter code.
+This repository contains the Docker image of number converter code and associated Kubernetes (K8s) deployment YAML files.
 
 # Number Converter
 This program performs number conversion between Binary, Octal, Decimal, and Hexadecimal number systems.
